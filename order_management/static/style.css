@@ -1,0 +1,13 @@
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.content {
+    background: #d4d2d2;
+    padding: 1.25rem 40px 2rem;
+    border: 1px solid #dedede;
+    border-top: none;
+    border-radius: 1px;
+}

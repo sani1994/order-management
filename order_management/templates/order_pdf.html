@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order | PDF</title>
+</head>
+<body>
+<div class="content center">
+    <img src="{{ obj.user.qr_code.url }}" alt="">
+
+    <table class="table table-bordered border-primary table-sm center" id="productTable">
+        <thead>
+        <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in obj.product.all %}
+            <tr>
+                <td>{{ obj.product.name }}</td>
+                <td>{{ obj.qty }}</td>
+                <td>{{ obj.total }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2">Total</td>
+            <td id="totalPrice">0</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+</body>
+</html>
