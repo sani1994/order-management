@@ -1,2 +1,5 @@
 __pycache__
 db.sqlite3
+migrations
+media
+customer_qr_code
