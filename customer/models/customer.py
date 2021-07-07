@@ -10,7 +10,7 @@ class Customer(models.Model):
     name = models.CharField(max_length=255, default=None, null=True, blank=True)
     phone_number = models.CharField(max_length=30, default=None, null=True, blank=True)
     email = models.EmailField(blank=True, null=True)
-    qr_code = models.ImageField(upload_to='customer_qr_code', blank=True, null=True)
+    qr_code = models.ImageField(upload_to='customer_qr_code/', blank=True, null=True)
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
@@ -20,11 +20,7 @@ class Customer(models.Model):
             box_size=6,
             border=0,
         )
-        data = {
-            'name': self.name,
-            'phone_number': self.phone_number,
-            'email': self.email
-        }
+        data = [self.name, self.phone_number, self.email]
         user_qr_code = qrcode.make(data=data)
         canvas = Image.new('RGB', (290, 290), 'white')
         draw = ImageDraw.Draw(canvas)
