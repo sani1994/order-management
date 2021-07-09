@@ -8,7 +8,7 @@ from django.db import models
 
 class Customer(models.Model):
     name = models.CharField(max_length=255, default=None, null=True, blank=True)
-    phone_number = models.CharField(max_length=30, default=None, null=True, blank=True)
+    phone_number = models.CharField(max_length=30, default=None, null=True, blank=True,help_text='Phone Number')
     email = models.EmailField(blank=True, null=True)
     qr_code = models.ImageField(upload_to='customer_qr_code/', blank=True, null=True)
 
